@@ -74,6 +74,12 @@ print output
 
 print "Mazel tov! You have reformulated", filename
 
+def main():
+
+	if __name__ == '__main__':
+		main()
+
+
 
 
 
