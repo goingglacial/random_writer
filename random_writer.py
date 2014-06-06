@@ -1,10 +1,12 @@
 import os.path
 import random
-
 import sys
+
 script, filename, order, output_length = sys.argv
 order = int(order)
 output_length = int(output_length)
+# distinguishes between numbers as strings and numbers
+# as integers
 
 if order <= 10: 
 	print "Perfect! Let's proceed."
@@ -12,16 +14,18 @@ else:
 	print "Please choose a number between 1 and 10."
 
 # open the file in read mode
-# f is a file object
+# note: f is a file object
 
 f = open(filename, 'r')
 
-#initialize an empty dictionary (a hashmap)
+#initialize an empty dictionary
 my_map = {}
 
 # print all lines in walden.txt to terminal
 sequence = f.read(order)
+
 next_character = f.read(1)
+# using index value to indicate next character
 
 while next_character:
 
@@ -47,7 +51,7 @@ f.close()
 # in my_map
 
 max_occurences = 0 
-mfk = "" # mfk == most frequent key
+mfk = "" # mfk == most frequent key in .txt file
 key_list = my_map.keys() # list of all of the keys
 for key in key_list:
 	num_occurences = len(my_map[key])
@@ -56,8 +60,8 @@ for key in key_list:
 		mfk = key
 
 print "The most frequent %d-character is \"%s\"." % (order, mfk)
-print "The sequence is followed by the characters:", my_map[mfk]
-print "The output is:"
+print "The sequence is followed by the following characters:", my_map[mfk]
+print "Get ready to giggle. The output is text: "
 
 current_key = mfk
 output = current_key
@@ -68,8 +72,7 @@ for i in xrange(len(current_key), output_length):
 
 print output
 
-
-
+print "Mazel tov! You have reformulated", filename
 
 
 
