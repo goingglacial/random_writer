@@ -74,5 +74,5 @@ def main():
 
 	print "Mazel tov! You have reformulated", filename
 
-if __name__ == '__main__'
+if __name__ == '__main__':
 	main()
